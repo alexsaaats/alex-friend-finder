@@ -1,0 +1,26 @@
+{
+  "name": "alex-friend-finder",
+  "version": "1.0.0",
+  "description": "HW",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexsaaats/alex-friend-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexsaaats/alex-friend-finder/issues"
+  },
+  "homepage": "https://github.com/alexsaaats/alex-friend-finder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "server-terminate": "^1.4.0"
+  }
+}
