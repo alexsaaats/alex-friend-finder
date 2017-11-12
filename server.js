@@ -3,6 +3,10 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
+var friendlist = require('./app/data/friends.js');
+
+//var htmlroutes = require("./app/routes/htmlRoutes.js")
+// var apiroutes = require("./app/routes/apiRoutes.js")
 
 
 // Sets up the Express App
@@ -10,21 +14,17 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
-//ACTIONS AND APP
-
-
-
-
-
-//app.get('/', (req, res) => res.send('Hello World! CONFIRM'))
-
+//Start server listening
 app.listen(3000, () => console.log('Friend finder app listening on port 3000.'));
-
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
+
+
+//ACTIONS AND APP
 
 /* 
 //TEST: 
@@ -34,25 +34,28 @@ app.get('/', function (req, res) {
 
 */
 
-
 // Routes
 // =============================================================
 
 //Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "/app/public/home.html"));
+  console.log("homepage loaded");
 });
 
+//Route to the user survey
 app.get("/survey", function(req, res) {
   res.sendFile(path.join(__dirname, "/app/public/survey.html"));
+  console.log("/survey called");
 });
 
-/* 
-
-// Get all characters
+// Get 
 app.get("/all", function(req, res) {
-  res.json(characters);
+  console.log("/all called");
+  res.json(friendlist);
 });
+
+/*
 
 // Search for Specific Character (or all characters) - provides JSON
 app.get("/api/:characters?", function(req, res) {
@@ -71,24 +74,15 @@ app.get("/api/:characters?", function(req, res) {
   return res.json(characters);
 });
 
+*/
+
 // Create New Characters - takes in JSON input
-app.post("/api/new", function(req, res) {
+app.post("/new", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
-  var newcharacter = req.body;
-  newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
-
-  console.log(newcharacter);
-
-  characters.push(newcharacter);
-
-  res.json(newcharacter);
+  var testquote = "World of quotes";
+  console.log(testquote);
 });
 
-// Starts the server to begin listening
-// =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
-});
 
-*/
+
