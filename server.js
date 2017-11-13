@@ -50,10 +50,36 @@ app.get("/survey", function(req, res) {
 });
 
 // Get 
-app.get("/all", function(req, res) {
-  console.log("/all called");
+app.get("/api/friends", function(req, res) {
+  console.log("/api/friends called");
   res.json(friendlist);
 });
+
+// Save profile data to friends array
+/* app.post("/new", function(req, res) {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body-parser middleware
+  var testquote = "World of quotes";
+  console.log(testquote);
+});
+*/
+
+app.post('/api/friends', function(req, res){
+  var obj = {};
+  console.log('body: ' + JSON.stringify(req.body));
+  res.send(req.body);
+
+  //function getscores() {
+  //  for(i=0, i < friendslist.length, i++) {
+  //  }
+  //}
+
+});
+
+  //characters.push(newcharacter);
+
+
+
 
 /*
 
@@ -75,14 +101,6 @@ app.get("/api/:characters?", function(req, res) {
 });
 
 */
-
-// Create New Characters - takes in JSON input
-app.post("/new", function(req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body-parser middleware
-  var testquote = "World of quotes";
-  console.log(testquote);
-});
 
 
 
