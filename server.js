@@ -12,7 +12,7 @@ var friendlist = require('./app/data/friends.js');
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 //Start server listening
 app.listen(3000, () => console.log('Friend finder app listening on port 3000.'));
