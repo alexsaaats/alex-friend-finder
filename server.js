@@ -15,7 +15,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 //Start server listening
-app.listen(3000, () => console.log('Friend finder app listening on port 3000.'));
+app.listen(PORT, () => console.log('Friend finder app listening on port 3000.'));
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
